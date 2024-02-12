@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Simple Blog</title>
+    <style>
+        body {
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Simple Blog</h2>
+
+    <!-- Create Blog Form -->
+    <form id="createBlogForm">
+        <div class="form-group">
+            <label for="blogTitle">Title:</label>
+            <input type="text" class="form-control" id="blogTitle" required>
+        </div>
+        <div class="form-group">
+            <label for="blogContent">Content:</label>
+            <textarea class="form-control" id="blogContent" rows="4" required></textarea>
+        </div>
+        <button type="button" class="btn btn-primary" onclick="createBlog()">Create Blog</button>
+    </form>
+
+    <hr>
+
+    <!-- Blog List -->
+    <div id="blogList"></div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="app.js"></script>
+
+</body>
+</html>

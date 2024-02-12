@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Task Management</title>
+    <style>
+        body {
+            padding: 20px;
+        }
+
+        .task-list {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Task Management</h2>
+
+    <form id="taskForm">
+        <div class="form-group">
+            <label for="taskName">Task Name:</label>
+            <input type="text" class="form-control" id="taskName" required>
+        </div>
+
+        <div class="form-group">
+            <label for="priority">Priority:</label>
+            <select class="form-control" id="priority">
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="dueDate">Due Date:</label>
+            <input type="date" class="form-control" id="dueDate">
+        </div>
+
+        <div class="form-group">
+            <label for="assignee">Assignee:</label>
+            <input type="text" class="form-control" id="assignee">
+        </div>
+
+        <div class="form-group">
+            <label for="dependencies">Dependencies:</label>
+            <input type="text" class="form-control" id="dependencies">
+        </div>
+
+        <button type="button" class="btn btn-primary" onclick="addTask()">Add Task</button>
+    </form>
+
+    <div class="task-list">
+        <h3>Task List</h3>
+        <ul id="taskList" class="list-group">
+            <!-- Task items will be dynamically added here -->
+        </ul>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    function addTask() {
+        const taskName = document.getElementById('taskName').value;
+        const priority = document.getElementById('priority').value;
+        const dueDate = document.getElementById('dueDate').value;
+        const assignee = document.getElementById('assignee').value;
+        const dependencies = document.getElementById('dependencies').value;
+
+        const taskItem = document.createElement('li');
+        taskItem.className = 'list-group-item';
+        taskItem.innerHTML = `<strong>${taskName}</strong><br>
+                              Priority: ${priority}<br>
+                              Due Date: ${dueDate}<br>
+                              Assignee: ${assignee}<br>
+                              Dependencies: ${dependencies}`;
+
+        document.getElementById('taskList').appendChild(taskItem);
+
+        // Clear the form fields after adding a task
+        document.getElementById('taskForm').reset();
+    }
+</script>
+
+</body>
+</html>
